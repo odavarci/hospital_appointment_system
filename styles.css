@@ -1,0 +1,46 @@
+body
+{
+    margin: 0%;
+    background-color: #d9c3b1;
+}
+
+/*NAVBAR*/
+.navbar
+{
+    background-color: #3e3645;
+    margin: 0%;
+}
+
+.navbar-list
+{
+    margin: auto;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.navbar-item
+{
+    display: inline;
+    padding-left: 4.5%;
+    padding-right: 4.5%;
+    font-size: large;
+    font-family: 'Noto Sans Lao Looped', sans-serif;
+    color: #c7ac92;
+}
+
+#logo
+{
+    padding-left: 2%;  
+}
+
+#logo-img
+{
+    max-width: 75%;
+    max-height: 75%;
+}
+
+/*LINKS*/
+a:link { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:hover { text-decoration: none; }
+a:active { text-decoration: none; }
