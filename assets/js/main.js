@@ -18,7 +18,27 @@
       return document.querySelector(el)
     }
   }
-
+  var dep ={
+    Psikoloji:['ali veli', '49 50'],
+    Radoyoloji:['alis deli', 'Merey Bilir'],
+    kardiyoloji:['seni sever', 'Abulun', 'tree keki'],
+    dermatoloji:['sanma ki', 'seni unutur', 'bu cilgin', 'bedis'],
+    cerrahi:['alsai velsadfi', 'dsfa9 5dsf0']
+  }
+  var main = document.getElementById('department');
+  var sub = document.getElementById('doctor');
+  main.addEventListener('change', function(){
+    console.log(this.value);
+    var opt = dep[this.value];
+    console.log(opt);
+    while(sub.length > 0){
+      sub.remove(0);
+    }
+    Array.from(opt).forEach(function(e1){
+      let option = new Option(e1, e1);
+      sub.appendChild(option);
+    });
+  });
   /**
    * Easy event listener function
    */
