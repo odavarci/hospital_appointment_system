@@ -39,6 +39,32 @@
       sub.appendChild(option);
     });
   });
+  var dat ={
+    'ali veli':['12-12-2000', '24-2-2012'],
+    '49 50':['123', '213-2432'],
+    'Merey Bilir':['234 435', '24-2-2012', '24-2-2012'],
+    'seni sever':['31', '69', '80'],
+    'bedis':['24-2-2012', '24-2-2012', '24-2-2012', '24-2-2012'],
+    'tree keki':['2-12-2031', 'sj', '2-2-2069', '24-2-2012'],
+    'Abulun':['24-2-2012', '24-2-2012']
+  }
+  var subsub = document.getElementById('date');
+  sub.addEventListener('change', function(){
+    console.log(this.value);
+    var opt = dat[this.value];
+    console.log(opt);
+    while(subsub.length > 0){
+      subsub.remove(0);
+    }
+    Array.from(opt).forEach(function(e1){
+      let option = new Option(e1, e1);
+      subsub.appendChild(option);
+    });
+  });
+
+
+
+
   /**
    * Easy event listener function
    */
