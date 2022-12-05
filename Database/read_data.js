@@ -112,6 +112,4 @@ async function getPrescriptionsOfPatient(tc) {
     return toReturn;
 }
 
-(async () => {
-    console.log(await getPrescriptionsOfPatient("12312312344"));
-})()
+module.exports.getDoctorsByDepartment = getDoctorsByDepartment;

@@ -6,8 +6,8 @@ module.exports.getClient = async () => {
         host: "localhost",
         port: "5432",
         user: "postgres",
-        password: "mklp%123",
-        database: "372",
+        password: "konya2001",
+        database: "proje",
         ssl: false,
     });
     await client.connect();

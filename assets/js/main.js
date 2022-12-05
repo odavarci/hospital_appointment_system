@@ -5,6 +5,7 @@
 * License: https://bootstrapmade.com/license/
 */
 (function() {
+
   "use strict";
   console.log("deneme");
   /**
@@ -18,13 +19,13 @@
       return document.querySelector(el)
     }
   }
-  var dep ={
-    Psikoloji:['ali veli', '49 50'],
-    Radoyoloji:['alis deli', 'Merey Bilir'],
-    kardiyoloji:['seni sever', 'Abulun', 'tree keki'],
-    dermatoloji:['sanma ki', 'seni unutur', 'bu cilgin', 'bedis'],
-    cerrahi:['alsai velsadfi', 'dsfa9 5dsf0']
-  }
+  let deger;
+  let dep;
+  (async () => {
+    deger = fetch('/deneme').then(res => res.json()).then(data => {return data});
+  })()
+  deger.then(a => {dep = a});
+
   var main = document.getElementById('department');
   var sub = document.getElementById('doctor');
   main.addEventListener('change', function(){
@@ -39,6 +40,7 @@
       sub.appendChild(option);
     });
   });
+ 
   var dat ={
     'ali veli':['12-12-2000', '24-2-2012'],
     '49 50':['123', '213-2432'],

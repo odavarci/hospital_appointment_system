@@ -1,15 +1,20 @@
 const express = require("express");
 const path = require("path");
+const {getDoctorsByDepartment} = require('./Database/read_data');
+
 const app = express();
  
 console.log(path.join(__dirname,));
 
-
+ 
 const staticPath = path.join(__dirname);
 app.use(express.static(staticPath));
 
 app.get('/', function(req,res){
     res.send("/index.html");
+});
+app.get('/deneme', async function(req,res){
+   res.json(await getDoctorsByDepartment());
 });
 app.get('/style.css', function(req, res) {
     res.sendFile(__dirname + "\\assets\\css" + "/style.css");
@@ -33,8 +38,8 @@ module.exports.getClient = async () => {
         host: "localhost",
         port: "5432",
         user: "postgres",
-        password: "mklp%123",
-        database: "372",
+        password: "konya2001",
+        database: "proje",
         ssl: false,
     });
     await client.connect();
