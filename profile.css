@@ -16,8 +16,8 @@ body{
   position: absolute;
   top: 50%;
   left: 50%;
-  height: 70%;
-  width: 70%;
+  height: 40%;
+  width: 75%;
   transform: translate(-50%,-50%);
   display: flex;
   box-shadow: 0 1px 20px 0 rgba(69,90,100,.08);
@@ -43,7 +43,8 @@ body{
 }
 
 .wrapper .left p{
-  font-size: 12px;
+  font-size: 15px;
+  margin-bottom: 10px;
 }
 
 .wrapper .right{
@@ -116,7 +117,7 @@ body{
 
 .appointment-btn {
     margin-right: 0;
-    background: #3fbbc0;
+    background: red;
     color: #fff;
     border-radius: 4px;
     padding: 8px 10px;
@@ -127,7 +128,7 @@ body{
   }
   
   .appointment-btn:hover {
-    background: #65c9cd;
+    background: rgb(206, 64, 64);
     color: #fff;
   }
   
@@ -137,7 +138,15 @@ body{
       padding: 6px 15px;
     }
   }
-h6 {
-  font-size: 15px;
+
+.report-info {
+  margin: 0px;
 }
 
+.btn-link {
+  color: #3fbbc0;
+}
+
+.card {
+  margin-bottom: 10px;
+}

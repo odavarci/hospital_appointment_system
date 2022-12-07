@@ -7,53 +7,81 @@
     <title>Profile</title>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="profile.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="wrapper">
         <div class="left">
             <img src="profile_icon.png" alt="user" width="100">
-            <h4>Ömer Faruk Merey</h4>
-            <h6>TC</h6>
+            <h6 style="font-size: 20px; margin-bottom: 0px;">TC</h6>
             <p>31313169690</p>
+            <h6 style="font-size: 20px; margin-bottom: 0px;">Name</h6>
+            <p>Thomas</p>
+            <h6 style="font-size: 20px; margin-bottom: 0px;">Surname</h6>
+            <p>Shelby</p>
+            <h6 style="font-size: 20px; margin-bottom: 0px;">Age</h6>
+            <p>31</p>
+            <h6 style="font-size: 20px; margin-bottom: 0px;">Gender</h6>
+            <p>Unknown</p>
+            <h6 style="font-size: 20px; margin-bottom: 0px;">SGK</h6>
+            <p>Emekli</p>
+            <h6 style="font-size: 20px; margin-bottom: 0px;">Email Adress</h6>
+            <p>o.merey@etu.edu.tr</p>
         </div>
-        <div class="right">
-            <div class="info">
-                <h3>Information</h3>
-                <div class="info_data">
-
-                    <div class="data">
-                        <h6>Age</h6>
-                        <p>31</p>
-                    </div>
-                    <div class="data">
-                        <h6>Gender</h6>
-                        <p>Unknown</p>
-                    </div>
-                    <div class="data">
-                        <h6>SGK</h6>
-                        <p>Emekli</p>
-                    </div>
-                </div>
-            </div>
-          
+        <div class="right">          
             <div class="projects">
-                <h3>Patience History</h3>
-                <div class="projects_data">
-                    
-                    <div class="data">
-                        <h4>Rapor</h4>
-                        <a href="rapor.html" class="appointment-btn scrollto"><span class="d-none d-md-inline">Rapor </br>Bilgileri</a>
+                <h3>Hospital Information</h3>
+                <div id="accordion">
+                    <div class="card">
+                      <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style="color: #01a9ac;">
+                            Rapor Bilgileri
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                          Ömer Faruk Merey is gay.
+                        </div>
+                      </div>
                     </div>
-                    <div class="data">
-                        <h4>Reçete</h4>
-                        <a href="recete.html" class="appointment-btn scrollto"><span class="d-none d-md-inline">Reçete </br>Bilgileri</a>
+                    <div class="card">
+                      <div class="card-header" id="headingTwo">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="color: #01a9ac;">
+                            Reçete Bilgileri
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <div class="card-body">
+                          Ömer Davarci is gay.
+                        </div>
+                      </div>
                     </div>
-                    <div class="data">
-                        <h4>Randevu</h4>
-                        <a href="appoint.html" class="appointment-btn scrollto"><span class="d-none d-md-inline">Randevu </br>Bilgileri</a>
+                    <div class="card">
+                      <div class="card-header" id="headingThree">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="color: #01a9ac;">
+                            Randevu Bilgileri
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                        <div class="card-body">
+                          Hüseyin Emre Aksoy is gay.
+                        </div>
+                      </div>
                     </div>
-                </div>
+                  </div>
+            </div>
+            <div class="cancel-appoint">
+                <a href="index.html" class="appointment-btn scrollto"><span class="d-none d-md-inline"></span>Cancel Appointment</a>
             </div>
         </div>
     </div>

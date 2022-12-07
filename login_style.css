@@ -18,6 +18,11 @@ p {
   position: relative;
 }
 
+.pgender {
+  width: 30px;
+  height: 30px;
+}
+
 a,
 a:link,
 a:visited,
@@ -63,7 +68,7 @@ input {
 }
 
 input[type="text"],
-input[type="email"], input[type="password"] {
+input[type="email"], input[type="password"], input[type="number"]{
   width: 100%;
   padding: 0 0 0 10px;
   margin: 0;
@@ -79,26 +84,29 @@ input[type="email"], input[type="password"] {
   background: none;
 }
 input[type="text"]:focus, input[type="password"]:focus,
-input[type="email"]:focus {
+input[type="email"]:focus, input[type="number"]:focus {
   border-color: #3ca9e2;
 }
 
 input[type="text"]:valid ~ .validation,
 input[type="email"]:valid ~ .validation,
-input[type="password"]:valid ~ .validation {
+input[type="password"]:valid ~ .validation,
+input[type="number"]:valid ~ .validation {
   display: block;
   border-color: #0C0;
 }
 input[type="text"]:valid ~ .validation span,
 input[type="email"]:valid ~ .validation span,
-input[type="password"]:valid ~ .validation span {
+input[type="password"]:valid ~ .validation span,
+input[type="number"]:valid ~ .validation span {
   background: #0C0;
   position: absolute;
   border-radius: 6px;
 }
 input[type="text"]:valid ~ .validation span:first-child,
 input[type="email"]:valid ~ .validation span:first-child,
-input[type="password"]:valid ~ .validation span:first-child {
+input[type="password"]:valid ~ .validation span:first-child,
+input[type="number"]:valid ~ .validation span:first-child {
   top: 30px;
   left: 14px;
   width: 20px;
@@ -108,7 +116,8 @@ input[type="password"]:valid ~ .validation span:first-child {
 }
 input[type="text"]:valid ~ .validation span:last-child,
 input[type="email"]:valid ~ .validation span:last-child,
-input[type="password"]:valid ~ .validation span:first-child {
+input[type="password"]:valid ~ .validation span:last-child,
+input[type="number"]:valid ~ .validation span:last-child {
   top: 35px;
   left: 8px;
   width: 11px;
