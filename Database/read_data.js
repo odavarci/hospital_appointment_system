@@ -112,4 +112,59 @@ async function getPrescriptionsOfPatient(tc) {
     return toReturn;
 }
 
+async function insertAppointment(tc, d_no, b_no, saat, tarih) {
+    const client = await getClient();
+    r_no = tc.substring(0, 4) + d_no.substring(0, 3) + tarih.substring(5, 7) + tarih.substring(8, 10);
+    if (saat != null)
+        saat = "'" + saat + "'";
+    else
+        saat = "NULL";
+    if (b_no != null)
+        b_no = "'" + b_no + "'";
+    else
+        b_no = "NULL";
+    await client.query(`INSERT INTO Randevu VALUES('${r_no}','${tc}','${d_no}',${b_no},${saat},'${tarih}');`);
+    await client.end();
+}
+
+async function deleteAppointment(r_no) {
+    const client = await getClient();
+    await client.query(`DELETE FROM Randevu WHERE r_no = '${r_no}';`);
+    await client.end();
+}
+
+async function insertPatient(tc, ad, soyad, sigorta, cinsiyet, yas) {
+    const client = await getClient();
+    arr = [tc, ad, soyad, sigorta, cinsiyet];
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] != null) {
+            arr[i] = "'" + arr[i] + "'";
+        }
+        else {
+            arr[i] = "NULL";
+        }
+    }
+    if (yas == null) {
+        yas = "NULL";
+    }
+
+    await client.query(`INSERT INTO Hasta VALUES(${arr[0]}, ${arr[1]}, ${arr[2]}, ${arr[3]}, ${arr[4]}, ${yas});`);
+    await client.end();
+}
+
+async function deletePatient(tc) {
+    const client = await getClient();
+    await client.query(`DELETE FROM Hasta Where tc_no = '${tc}'`);
+    await client.end();
+}
+
+module.exports.getPatientsName = getPatientsName;
+module.exports.getDepartmentName = getDepartmentName;
+module.exports.getAppointmentsOfPatient = getAppointmentsOfPatient;
+module.exports.getSickReportsOfPatient = getSickReportsOfPatient;
+module.exports.getPrescriptionsOfPatient = getPrescriptionsOfPatient;
 module.exports.getDoctorsByDepartment = getDoctorsByDepartment;
+module.exports.insertAppointment = insertAppointment;
+module.exports.deleteAppointment = deleteAppointment;
+module.exports.insertPatient = insertPatient;
+module.exports.deletePatient = deletePatient;

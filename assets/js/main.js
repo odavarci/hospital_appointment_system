@@ -40,16 +40,7 @@
       sub.appendChild(option);
     });
   });
- 
-  var dat ={
-    'ali veli':['12-12-2000', '24-2-2012'],
-    '49 50':['123', '213-2432'],
-    'Merey Bilir':['234 435', '24-2-2012', '24-2-2012'],
-    'seni sever':['31', '69', '80'],
-    'bedis':['24-2-2012', '24-2-2012', '24-2-2012', '24-2-2012'],
-    'tree keki':['2-12-2031', 'sj', '2-2-2069', '24-2-2012'],
-    'Abulun':['24-2-2012', '24-2-2012']
-  }
+
   var subsub = document.getElementById('date');
   sub.addEventListener('change', function(){
     console.log(this.value);
