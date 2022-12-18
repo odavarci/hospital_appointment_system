@@ -15,6 +15,16 @@ function log() {
     else {
         alert("No such user exists!");
     }
+
+        fetch('/tcno', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            "tcno": tc
+        })
+    
+    })
+      
 }
 
 function isItIn(tc) {

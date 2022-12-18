@@ -1,8 +1,11 @@
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
+const bodyParser = require("body-parser");
 
 const app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
  
 console.log(path.join(__dirname,));
 
@@ -16,8 +19,18 @@ app.get('/', function(req,res){
 app.get('/deneme', async function(req,res){
    res.json(await getDoctorsByDepartment());
 });
-app.get('/deneme', async function (req, res) {
-    res.json(await getPatientsName());
+app.post('/tcno', (req, res) => {
+    console.log(req.body);
+
+    const {tcno} = req.body;
+    console.log(tcno);
+});
+
+app.get('/123', async function (req, res) {
+    let b;
+    b = await getPatientsName();
+    console.log(b);
+    res.json(b);
 });
 app.get('/style.css', function(req, res) {
     res.sendFile(__dirname + "\\assets\\css" + "/style.css");
@@ -41,8 +54,8 @@ async function getClient() {
         host: "localhost",
         port: "5432",
         user: "postgres",
-        password: "mklp%123",
-        database: "372",
+        password: "konya2001",
+        database: "proje",
         ssl: false,
     });
     await client.connect();
@@ -63,6 +76,7 @@ async function getPatientsName() {
     await client.end();
     return out;
 }
+
 
 async function getDepartmentName() {
     const client = await getClient();
@@ -216,10 +230,16 @@ async function getPasswordOfPatient(tc) {
 }
 
 //DEMO
+ var a = 5;
 (async () => {
-    insertPatient("47382048362", "Omer", "Davarci", "SGK", "E", 20, "12312312312");
+    //insertPatient("47382048362", "Omer", "Davarci", "SGK", "E", 20, "12312312312");
     //var a = await getPasswordOfPatient("12312312344");
-    //var a = await getPatientsName();
+    a = await getPatientsName();
     //var a = await getDoctorsByDepartment();
     //console.log(a);
+
+   // window.localStorage.setItem("myObject", JSON.stringify(a[0]));
+
 })();
+
+//console.log(obj);

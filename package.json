@@ -4,7 +4,7 @@
   "description": "Thanks for downloading this template!",
   "main": "index.js",
   "scripts": {
-    "dev" : "index.js"
+    "dev": "index.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +18,7 @@
   "homepage": "https://github.com/odavarci/hospital_appointment_system#readme",
   "dependencies": {
     "-": "^0.0.1",
+    "body-parser": "^1.20.1",
     "browserify-fs": "^1.0.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
@@ -27,4 +28,3 @@
     "pg": "^8.8.0"
   }
 }
-

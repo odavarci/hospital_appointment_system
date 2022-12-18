@@ -21,41 +21,63 @@
   }
   let deger;
   let dep;
-  (async () => {
-    deger = fetch('/deneme').then(res => res.json()).then(data => {return data});
-  })()
-  deger.then(a => {dep = a});
-
+  let dep2;
+  let deger2;
   var main = document.getElementById('department');
   var sub = document.getElementById('doctor');
-  main.addEventListener('change', function(){
-    console.log(this.value);
-    var opt = dep[this.value];
-    console.log(opt);
-    while(sub.length > 0){
-      sub.remove(0);
-    }
-    Array.from(opt).forEach(function(e1){
-      let option = new Option(e1, e1);
-      sub.appendChild(option);
+  (async () => {
+    deger = fetch('/deneme').then(res => res.json()).then(data => {return data});
+    deger2 = fetch('/123').then(res => res.json()).then(data => {return data});
+
+  })()
+  deger2.then(a => {
+    dep2 = a;
+    console.log(dep2);
+  })
+  deger.then(a => { 
+    dep = a;
+    main.addEventListener('change', function(){
+      console.log(this.value);
+      var opt = dep[this.value];
+      console.log(opt);
+      while(sub.length > 0){
+        sub.remove(0);
+      }
+      Array.from(opt).forEach(function(e1){
+        let option = new Option(e1, e1);
+        sub.appendChild(option);
+      });
     });
-  });
-
-  var subsub = document.getElementById('date');
-  sub.addEventListener('change', function(){
-    console.log(this.value);
-    var opt = dat[this.value];
-    console.log(opt);
-    while(subsub.length > 0){
-      subsub.remove(0);
-    }
-    Array.from(opt).forEach(function(e1){
-      let option = new Option(e1, e1);
-      subsub.appendChild(option);
+  
+    var subsub = document.getElementById('date');
+    sub.addEventListener('change', function(){
+      console.log(this.value);
+      var opt = dat[this.value];
+      console.log(opt);
+      while(subsub.length > 0){
+        subsub.remove(0);
+      }
+      Array.from(opt).forEach(function(e1){
+        let option = new Option(e1, e1);
+        subsub.appendChild(option);
+      });
     });
-  });
+  
+  })
 
+  let tc = '1234123412';
 
+  function postInfo(){
+    fetch('/tcno', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        "tcno": tc
+      })
+
+    })
+  }
+  postInfo();
 
 
   /**
