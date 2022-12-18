@@ -26,6 +26,8 @@
   let randevuDeger;
   let receteDeger;
   let raporDeger;
+  let degerProfile;
+  let depProfile;
   let main = document.getElementById('department');
   let sub = document.getElementById('doctor');
   let sbt = document.getElementById('submit');
@@ -39,9 +41,27 @@
     randevuDeger = fetch('/randevu').then(res => res.json()).then(data => {return data});
     receteDeger = fetch('/recete').then(res => res.json()).then(data => {return data});
     raporDeger = fetch('/rapor').then(res => res.json()).then(data => {return data});
-
+    degerProfile = fetch('/profile').then(res => res.json()).then(data => { return data });
   })()
 
+<<<<<<< Updated upstream
+=======
+  degerProfile.then(a => {
+    depProfile = a;
+    console.log("profil bilgi:" + depProfile);
+    document.getElementById("profile-tc").innerHTML = depProfile[0];
+    document.getElementById("profile-name").innerHTML = depProfile[1];
+    document.getElementById("profile-surname").innerHTML = depProfile[2];
+    document.getElementById("profile-age").innerHTML = depProfile[3];
+    document.getElementById("profile-sex").innerHTML = depProfile[4];
+    document.getElementById("profile-insurance").innerHTML = depProfile[5];
+  })
+
+  deger2.then(a => {
+    dep2 = a;
+    console.log(dep2);
+  })
+>>>>>>> Stashed changes
   deger.then(a => { 
     dep = a;
     main.addEventListener('change', function(){
