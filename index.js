@@ -9,6 +9,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
  
 console.log(path.join(__dirname,));
 
+let tc = "12312312344";
  
 const staticPath = path.join(__dirname);
 app.use(express.static(staticPath));
@@ -20,11 +21,19 @@ app.get('/deneme', async function(req,res){
    res.json(await getDoctorsByDepartment());
 });
 
-app.post('/tcno', (req, res) => {
-    console.log(req.body);
+app.post('/tcno1', (req, res) => {
+    const { tcno } = req.body;
+    console.log("back recieved: " + tcno);
+});
 
-    const {tcno} = req.body;
-    console.log(tcno);
+app.get('/tcno2', async function (req, res) {
+    console.log("let do it!");
+    res.json(await getPasswordOfPatient(tcno));
+});
+
+app.post('/signup', (req, res) => {
+    const { tcno, name, surname, age, sex, insurance, password } = req.body;
+    insertPatient(tcno, name, surname, insurance, sex, age, password);
 });
 
 app.get('/123', async function (req, res) {
@@ -80,8 +89,8 @@ async function getClient() {
         host: "localhost",
         port: "5432",
         user: "postgres",
-        password: "konya2001",
-        database: "proje",
+        password: "mklp%123",
+        database: "372",
         ssl: false,
     });
     await client.connect();
@@ -255,6 +264,14 @@ async function getPasswordOfPatient(tc) {
     return str;
 }
 
+async function getDoctorIdByName(name, surname) {
+    const client = await getClient();
+    const entries = await client.query(`Select doktor_no from doktor where ad = '${name}' and soyad = '${surname}';`);
+    var str = `${entries.rows.map((r) => Object.values(r).join('\t')).join('\n')}`;
+    await client.end();
+    return str;
+}
+
 //DEMO
  var a = 5;
 (async () => {
@@ -262,11 +279,12 @@ async function getPasswordOfPatient(tc) {
     //var a = await getPasswordOfPatient("12312312344");
    // a = await getPatientsName();
     //var a = await getDoctorsByDepartment();
-    a = await getPrescriptionsOfPatient("12312312344");
-    var b = await getSickReportsOfPatient("12312312344");
+    //a = await getPrescriptionsOfPatient("12312312344");
+    //var b = await getSickReportsOfPatient("12312312344");
+    var a = await getDoctorIdByName("Osman", "Abul");
 
     console.log(a);
-    console.log(b);
+    //console.log(b);
 
 
    // window.localStorage.setItem("myObject", JSON.stringify(a[0]));

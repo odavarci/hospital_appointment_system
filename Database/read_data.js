@@ -168,17 +168,6 @@ async function getPasswordOfPatient(tc) {
     return str;
 }
 
-(async () => {
-    //insertPatient("00000000000", "Omer", "Davarci", "SGK", "E", 20, "00000000000");
-    //var a = getPasswordOfPatient("12312312344");
-    //var a = getPatientsName();
-    //var a = getDoctorsByDepartment();
-
-    a.then(function () {
-        console.log(a);
-    })
-})();
-
 module.exports.getPatientsName = getPatientsName;
 module.exports.getDepartmentName = getDepartmentName;
 module.exports.getAppointmentsOfPatient = getAppointmentsOfPatient;
