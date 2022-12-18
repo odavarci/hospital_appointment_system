@@ -63,19 +63,13 @@
     });
   })
 
-  let tc = '1234123412';
 
 
 
 
 
   sbt.addEventListener('click',function(){
-    console.log("fadsdsafadsgsag");
 
-    console.log(date.value);
-    console.log(main.value);
-
-    console.log(sub.value);
     fetch('/appo', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
@@ -91,18 +85,6 @@
 
   })
 
-  function postInfo(){
-    fetch('/tcno', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-
-      body: JSON.stringify({
-        "tcno": tc
-      })
-
-    })
-  }
-  postInfo();
   
 
   let Randevu = document.getElementById('randevu');
