@@ -28,6 +28,12 @@
   let raporDeger;
   let main = document.getElementById('department');
   let sub = document.getElementById('doctor');
+  let sbt = document.getElementById('submit');
+  let date = document.getElementById('date');
+  let saat = document.getElementById('saat');
+  
+
+
   (async () => {
     deger = fetch('/deneme').then(res => res.json()).then(data => {return data});
     deger2 = fetch('/123').then(res => res.json()).then(data => {return data});
@@ -36,8 +42,6 @@
     raporDeger = fetch('/rapor').then(res => res.json()).then(data => {return data});
 
   })()
-
-  
 
   deger2.then(a => {
     dep2 = a;
@@ -57,24 +61,35 @@
         sub.appendChild(option);
       });
     });
-  
-    var subsub = document.getElementById('date');
-    sub.addEventListener('change', function(){
-      console.log(this.value);
-      var opt = dat[this.value];
-      console.log(opt);
-      while(subsub.length > 0){
-        subsub.remove(0);
-      }
-      Array.from(opt).forEach(function(e1){
-        let option = new Option(e1, e1);
-        subsub.appendChild(option);
-      });
-    });
-  
   })
 
   let tc = '1234123412';
+
+
+
+
+
+  sbt.addEventListener('click',function(){
+    console.log("fadsdsafadsgsag");
+
+    console.log(date.value);
+    console.log(main.value);
+
+    console.log(sub.value);
+    fetch('/appo', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+
+      body: JSON.stringify({
+        "doctor": sub.value,
+        "department": main.value,
+        "saat": saat.value,
+        "date": date.value
+      })
+
+    });
+
+  })
 
   function postInfo(){
     fetch('/tcno', {
@@ -165,6 +180,15 @@
       }
     });
   })
+
+
+
+
+
+
+
+
+
   /**
    * Easy event listener function
    */

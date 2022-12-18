@@ -81,7 +81,37 @@
                 <a href="index.html" class="appointment-btn scrollto"><span class="d-none d-md-inline"></span>Cancel Appointment</a>
             </div>
         </div>
+        <div id="app-form-wrap">
+          <h4>Make Appointment</h4>
+        
+            <p>
+            <input type="date" id="date" name="date" placeholder="date" required><span></span><span></span></i>
+            </p>
+            <p>
+              <input type="text" id="saat" name="saat" placeholder="saat" required><span></span><span></span></i>
+            </p>
+            <p>
+                <select name="department" id="department" style="border-color: #000000; border-width: 1px;">
+                  <option value="">Select Department</option>
+                  <option value="Kardiyoloji">Kardiyoloji</option>
+                  <option value="Psikoloji">Psikoloji</option>
+                  <option value="Dahiliye">Dahiliye</option>
+                  <option value="Radyoloji">Radyoloji</option>
+                  <option value="Nöroloji">Nöroloji</option>
+                </select>
+                <select name="doctor" id="doctor" class="form-select" style="border-color: #000000; border-width: 1px;">
+                  <option value="">Select Doctor</option>
+  
+                </select>
+            </p>
+
+            <p>
+            <input type="submit" id="submit" value="submit">
+            </p>
+          
+          <div >
     </div>
+    
     <script src="assets/js/main.js"></script>
 
 </body>

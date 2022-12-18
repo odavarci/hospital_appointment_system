@@ -34,7 +34,24 @@ app.get('/tcno2', async function (req, res) {
 app.post('/signup', (req, res) => {
     const { tcno, name, surname, age, sex, insurance, password } = req.body;
     insertPatient(tcno, name, surname, insurance, sex, age, password);
+    tc = tcno;
 });
+app.post('/appo', (req, res) =>{
+    const {doctor, department, saat, date} = req.body;
+    let nameArr = doctor.split(" ");
+    console.log("loooo");
+    console.log(tc);
+    console.log(nameArr[1]);
+
+    let a = getDoctorIdByName(nameArr[0], nameArr[1]);
+    a.then( b =>{
+        let p = b;
+        console.log(p);
+        insertAppointment(tc, p, null, saat, date);
+    })
+  ;
+
+})
 
 app.get('/123', async function (req, res) {
     let b;
@@ -89,8 +106,8 @@ async function getClient() {
         host: "localhost",
         port: "5432",
         user: "postgres",
-        password: "mklp%123",
-        database: "372",
+        password: "konya2001",
+        database: "proje",
         ssl: false,
     });
     await client.connect();
