@@ -69,13 +69,13 @@ app.get('/123', async function (req, res) {
 
 app.get('/randevu', async function (req, res) {
     let b;
-    b = await getAppointmentsOfPatient("12312312344");
+    b = await getAppointmentsOfPatient(tc);
     res.json(b);
 });
 
 app.get('/recete', async function (req, res) {
     let b;
-    b = await getPrescriptionsOfPatient("12312312344");
+    b = await getPrescriptionsOfPatient(tc);
     console.log("recete");
     console.log(b);
     res.json(b);
@@ -83,7 +83,10 @@ app.get('/recete', async function (req, res) {
 
 app.get('/rapor', async function (req, res) {
     let b;
-    b = await getSickReportsOfPatient("12312312344");
+    console.log("aaaaaaaaaaaaa");
+
+    console.log(tc);
+    b = await getSickReportsOfPatient(tc);
     console.log("rapor");
     console.log(b);
     res.json(b);
@@ -111,8 +114,8 @@ async function getClient() {
         host: "localhost",
         port: "5432",
         user: "postgres",
-        password: "mklp%123",
-        database: "372",
+        password: "konya2001",
+        database: "proje",
         ssl: false,
     });
     await client.connect();

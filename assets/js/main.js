@@ -36,17 +36,12 @@
 
   (async () => {
     deger = fetch('/deneme').then(res => res.json()).then(data => {return data});
-    deger2 = fetch('/123').then(res => res.json()).then(data => {return data});
     randevuDeger = fetch('/randevu').then(res => res.json()).then(data => {return data});
     receteDeger = fetch('/recete').then(res => res.json()).then(data => {return data});
     raporDeger = fetch('/rapor').then(res => res.json()).then(data => {return data});
 
   })()
 
-  deger2.then(a => {
-    dep2 = a;
-    console.log(dep2);
-  })
   deger.then(a => { 
     dep = a;
     main.addEventListener('change', function(){
