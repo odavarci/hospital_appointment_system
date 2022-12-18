@@ -19,6 +19,7 @@ app.get('/', function(req,res){
 app.get('/deneme', async function(req,res){
    res.json(await getDoctorsByDepartment());
 });
+
 app.post('/tcno', (req, res) => {
     console.log(req.body);
 
@@ -32,6 +33,31 @@ app.get('/123', async function (req, res) {
     console.log(b);
     res.json(b);
 });
+
+app.get('/randevu', async function (req, res) {
+    let b;
+    b = await getAppointmentsOfPatient("12312312344");
+    res.json(b);
+});
+
+app.get('/recete', async function (req, res) {
+    let b;
+    b = await getPrescriptionsOfPatient("12312312344");
+    console.log("recete");
+    console.log(b);
+    res.json(b);
+});
+
+app.get('/rapor', async function (req, res) {
+    let b;
+    b = await getSickReportsOfPatient("12312312344");
+    console.log("rapor");
+    console.log(b);
+    res.json(b);
+});
+
+
+
 app.get('/style.css', function(req, res) {
     res.sendFile(__dirname + "\\assets\\css" + "/style.css");
   });
@@ -234,9 +260,14 @@ async function getPasswordOfPatient(tc) {
 (async () => {
     //insertPatient("47382048362", "Omer", "Davarci", "SGK", "E", 20, "12312312312");
     //var a = await getPasswordOfPatient("12312312344");
-    a = await getPatientsName();
+   // a = await getPatientsName();
     //var a = await getDoctorsByDepartment();
-    //console.log(a);
+    a = await getPrescriptionsOfPatient("12312312344");
+    var b = await getSickReportsOfPatient("12312312344");
+
+    console.log(a);
+    console.log(b);
+
 
    // window.localStorage.setItem("myObject", JSON.stringify(a[0]));
 

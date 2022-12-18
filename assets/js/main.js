@@ -23,13 +23,22 @@
   let dep;
   let dep2;
   let deger2;
-  var main = document.getElementById('department');
-  var sub = document.getElementById('doctor');
+  let randevuDeger;
+  let receteDeger;
+  let raporDeger;
+  let main = document.getElementById('department');
+  let sub = document.getElementById('doctor');
   (async () => {
     deger = fetch('/deneme').then(res => res.json()).then(data => {return data});
     deger2 = fetch('/123').then(res => res.json()).then(data => {return data});
+    randevuDeger = fetch('/randevu').then(res => res.json()).then(data => {return data});
+    receteDeger = fetch('/recete').then(res => res.json()).then(data => {return data});
+    raporDeger = fetch('/rapor').then(res => res.json()).then(data => {return data});
 
   })()
+
+  
+
   deger2.then(a => {
     dep2 = a;
     console.log(dep2);
@@ -71,6 +80,7 @@
     fetch('/tcno', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
+
       body: JSON.stringify({
         "tcno": tc
       })
@@ -78,8 +88,83 @@
     })
   }
   postInfo();
+  
 
+  let Randevu = document.getElementById('randevu');
+  let Randevu_Bilgi = document.getElementById('randevu_bilgi');
+  let randevulari;
+  randevuDeger.then(a =>{
+    randevulari = a;
+    let j = 0;
+    Randevu.addEventListener('click', function(){
+      j += 1;
+      console.log(randevulari.length);
+      let i = 0;
+      if(j == 1){
+        while(randevulari.length > i){
+          Randevu_Bilgi.innerHTML += '\n' + randevulari[i]+'\n';
+          Randevu_Bilgi.innerHTML += '\n';
 
+          i += 1;
+        }
+      }else if(j == 2){
+        Randevu_Bilgi.innerHTML = '';
+        j = 0;
+      }
+    });
+  })
+
+  //recete
+  let recete = document.getElementById('recete');
+  let recete_bilgi = document.getElementById('recete_bilgi');
+  let receteleri;
+  receteDeger.then(a =>{
+    receteleri = a;
+    let j = 0;
+    recete.addEventListener('click', function(){
+      j += 1;
+      console.log("denemeler 123");
+      console.log(receteleri.length);
+      let i = 0;
+      if(j == 1){
+        while(receteleri.length > i){
+          recete_bilgi.innerHTML += '\n' + receteleri[i]+'\n';
+          recete_bilgi.innerHTML += '\n';
+
+          i += 1;
+        }
+      }else if(j == 2){
+        recete_bilgi.innerHTML = '';
+        j = 0;
+      }
+    });
+  })
+  //rapor
+
+  let rapor = document.getElementById('rapor');
+  let rapor_Bilgi = document.getElementById('rapor_bilgi');
+  let raporlari;
+  raporDeger.then(a =>{
+    raporlari = a;
+    let j = 0;
+    rapor.addEventListener('click', function(){
+      j += 1;
+      console.log("rapor");
+      console.log(raporlari.length);
+      let i = 0;
+      if(j == 1){
+        while(raporlari.length > i){
+          rapor_Bilgi.innerHTML += '\n' + raporlari[i]+'\n';
+          rapor_Bilgi.innerHTML += '\n';
+
+          i += 1;
+        }
+      }else if(j == 2){
+        rapor_Bilgi.innerHTML = '';
+        j = 0;
+      }
+    });
+  })
   /**
    * Easy event listener function
    */

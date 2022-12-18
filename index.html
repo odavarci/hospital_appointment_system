@@ -38,6 +38,7 @@
 </head>
 
 <body>
+  
 
   <!-- ======= Top Bar ======= -->
   <div id="topbar" class="d-flex align-items-center fixed-top">
@@ -222,6 +223,9 @@
     </section><!-- End Counts Section -->
 
     <!-- ======= Appointment Section ======= -->
+
+
+
     <section id="appointment" class="appointment section-bg">
       <div class="container" data-aos="fade-up">
 
@@ -233,23 +237,21 @@
         <form action="forms/appointment.php" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
           <div class="row">
             <div class="col-md-4 form-group">
-              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+              <input type="text" name="name" class="form-control"style="border-color: #000000; border-width: 1px;" id="name" placeholder="Your Name" required>
             </div>
             <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+              <input type="email" class="form-control" style="border-color: #000000; border-width: 1px;"name="email" id="email" placeholder="Your Email" required>
             </div>
             <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="tel" class="form-control" name="phone" id="phone" placeholder="Your Phone" required>
+              <input type="tel" class="form-control" style="border-color: #000000; border-width: 1px;" name="phone" id="phone" placeholder="Your Phone" required>
             </div>
           </div>
           <div class="row">
             <div class="col-md-4 form-group mt-3">
-              <select name="date" id="date" class="form-select">
-                <option value="">Select Appointment Date</option>
-              </select>
+                <input type="date" id="date" style="width: 100%; border-color: #000000; border-width: 1px; "></input>
             </div>
             <div class="col-md-4 form-group mt-3">
-              <select name="department" id="department" class="form-select">
+              <select name="department" id="department" style="border-color: #000000; border-width: 1px;" class="form-select">
                 <option value="">Select Department</option>
                 <option value="Kardiyoloji">Kardiyoloji</option>
                 <option value="Psikoloji">Psikoloji</option>
@@ -259,7 +261,7 @@
               </select>
             </div>
             <div class="col-md-4 form-group mt-3">
-              <select name="doctor" id="doctor" class="form-select">
+              <select name="doctor" id="doctor" class="form-select" style="border-color: #000000; border-width: 1px;">
                 <option value="">Select Doctor</option>
 
               </select>
@@ -267,7 +269,7 @@
           </div>
 
           <div class="form-group mt-3">
-            <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)"></textarea>
+            <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)" style="border-color: #000000; border-width: 1px;"></textarea>
           </div>
           <div class="my-3">
             <div class="loading">Loading</div>
