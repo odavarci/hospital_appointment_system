@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <title>HTML5 Login Form with validation Example</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel="stylesheet" href="./login_style.css">
-
+  <link rel="stylesheet" href="./login_style.css">
+  <script src="login.js"></script>
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -14,13 +14,13 @@
   <h2>Abul Hospital Login</h2>
   <form id="login-form">
     <p>
-    <input type="text" id="username" name="username" placeholder="TC" required><span></span><span></span></i>
+    <input type="text" id="tc" name="username" placeholder="TC" required><span></span><span></span></i>
     </p>
     <p>
-    <input type="password" id="email" name="email" placeholder="Password" required><span></span><span></span></i>
+    <input type="password" id="password" name="email" placeholder="Password" required><span></span><span></span></i>
     </p>
     <p>
-    <input type="submit" id="login" value="Login">
+    <input type="submit" id="login" value="Login" onclick="log()">
     </p>
   </form>
   <div id="create-account-wrap">

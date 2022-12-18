@@ -133,9 +133,10 @@ async function deleteAppointment(r_no) {
     await client.end();
 }
 
-async function insertPatient(tc, ad, soyad, sigorta, cinsiyet, yas) {
+async function insertPatient(tc, ad, soyad, sigorta, cinsiyet, yas, parola) {
     const client = await getClient();
-    arr = [tc, ad, soyad, sigorta, cinsiyet];
+    var arr = [tc, ad, soyad, sigorta, cinsiyet, parola];
+    console.log(arr);
     for (var i = 0; i < arr.length; i++) {
         if (arr[i] != null) {
             arr[i] = "'" + arr[i] + "'";
@@ -148,7 +149,7 @@ async function insertPatient(tc, ad, soyad, sigorta, cinsiyet, yas) {
         yas = "NULL";
     }
 
-    await client.query(`INSERT INTO Hasta VALUES(${arr[0]}, ${arr[1]}, ${arr[2]}, ${arr[3]}, ${arr[4]}, ${yas});`);
+    await client.query(`INSERT INTO Hasta VALUES(${arr[0]}, ${arr[1]}, ${arr[2]}, ${arr[3]}, ${arr[4]}, ${yas}), ${arr[5]};`);
     await client.end();
 }
 
@@ -157,6 +158,26 @@ async function deletePatient(tc) {
     await client.query(`DELETE FROM Hasta Where tc_no = '${tc}'`);
     await client.end();
 }
+
+async function getPasswordOfPatient(tc) {
+    const client = await getClient();
+    const entries = await client.query(`SELECT parola FROM hasta WHERE tc_no = '${tc}';`);
+
+    var str = `${entries.rows.map((r) => Object.values(r).join('\t')).join('\n')}`;
+    await client.end();
+    return str;
+}
+
+(async () => {
+    //insertPatient("00000000000", "Omer", "Davarci", "SGK", "E", 20, "00000000000");
+    //var a = getPasswordOfPatient("12312312344");
+    //var a = getPatientsName();
+    //var a = getDoctorsByDepartment();
+
+    a.then(function () {
+        console.log(a);
+    })
+})();
 
 module.exports.getPatientsName = getPatientsName;
 module.exports.getDepartmentName = getDepartmentName;
@@ -168,3 +189,4 @@ module.exports.insertAppointment = insertAppointment;
 module.exports.deleteAppointment = deleteAppointment;
 module.exports.insertPatient = insertPatient;
 module.exports.deletePatient = deletePatient;
+module.exports.getPasswordOfPatient = getPasswordOfPatient;

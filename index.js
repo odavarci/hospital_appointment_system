@@ -1,6 +1,7 @@
 const express = require("express");
+const fs = require("fs");
 const path = require("path");
-const {getDoctorsByDepartment} = require('./Database/read_data');
+const { getDoctorsByDepartment, getPatientsName } = require('./Database/read_data');
 
 const app = express();
  
@@ -15,6 +16,9 @@ app.get('/', function(req,res){
 });
 app.get('/deneme', async function(req,res){
    res.json(await getDoctorsByDepartment());
+});
+app.get('/deneme', async function (req, res) {
+    res.json(await getPatientsName());
 });
 app.get('/style.css', function(req, res) {
     res.sendFile(__dirname + "\\assets\\css" + "/style.css");
@@ -38,8 +42,8 @@ module.exports.getClient = async () => {
         host: "localhost",
         port: "5432",
         user: "postgres",
-        password: "konya2001",
-        database: "proje",
+        password: "mklp%123",
+        database: "372",
         ssl: false,
     });
     await client.connect();
