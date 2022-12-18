@@ -21,14 +21,21 @@ app.get('/deneme', async function(req,res){
    res.json(await getDoctorsByDepartment());
 });
 
-app.post('/tcno1', (req, res) => {
-    const { tcno } = req.body;
-    console.log("back recieved: " + tcno);
+app.post('/login', async function (req, res) {
+    const { tcno, password } = req.body;
+    real_password = await getPasswordOfPatient(tcno);
+    if (real_password == password) {
+        tc = tcno;
+        console.log("You successfully logged in");
+        res.send('/profile.html');
+    }
+    else {
+        console.log("Wrong password");
+    }
 });
 
-app.get('/tcno2', async function (req, res) {
-    console.log("let do it!");
-    res.json(await getPasswordOfPatient(tcno));
+app.get('/profile', async function (req, res) {
+    res.json(await getPatientByTC(tc));
 });
 
 app.post('/signup', (req, res) => {
@@ -82,8 +89,6 @@ app.get('/rapor', async function (req, res) {
     res.json(b);
 });
 
-
-
 app.get('/style.css', function(req, res) {
     res.sendFile(__dirname + "\\assets\\css" + "/style.css");
   });
@@ -106,8 +111,8 @@ async function getClient() {
         host: "localhost",
         port: "5432",
         user: "postgres",
-        password: "konya2001",
-        database: "proje",
+        password: "mklp%123",
+        database: "372",
         ssl: false,
     });
     await client.connect();
@@ -129,6 +134,17 @@ async function getPatientsName() {
     return out;
 }
 
+async function getPatientByTC(tc) {
+    const client = await getClient();
+    const entries = await client.query(`Select * from Hasta where tc_no='${tc}'`);
+
+    str = `${entries.rows.map((r) => Object.values(r).join('\t')).join('\n')}`;
+    out = str.split("\n");
+    out = out[0].split("\t");
+
+    await client.end();
+    return out;
+}
 
 async function getDepartmentName() {
     const client = await getClient();
